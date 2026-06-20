@@ -39,18 +39,6 @@ Advanced follow-up covering rules, skills, commands, subagents, and repeatable h
 | `recipe_asistant/` | LangGraph recipe assistant demo — human-in-the-loop agent with web search |
 | `cursor-memory-bank-rules.md` | Memory bank pattern reference for persistent project context |
 
-### Recipe Assistant
-
-A LangGraph agent that finds recipes via Tavily search, summarizes them with an LLM, and loops on human feedback until the user is satisfied.
-
-- `recipe_assistant.py` — main agent implementation
-- `recipe_assistant.ipynb` — companion notebook
-
-**Required environment variables** (create a `.env` file in the project root):
-
-```
-OPENAI_API_KEY=your_key
-TAVILY_API_KEY=your_key
 ```
 
 ---

@@ -39,7 +39,6 @@ Advanced follow-up covering rules, skills, commands, subagents, and repeatable h
 | `recipe_asistant/` | LangGraph recipe assistant demo — human-in-the-loop agent with web search |
 | `cursor-memory-bank-rules.md` | Memory bank pattern reference for persistent project context |
 
-
 ---
 
 ## Speaker

@@ -43,6 +43,8 @@ Advanced follow-up covering rules, skills, commands, subagents, and repeatable h
 
 ## Speaker
 
+<img src="https://media.licdn.com/dms/image/v2/D4D03AQE4o7wGwqIGTQ/profile-displayphoto-scale_400_400/B4DZ7PcBdQI8Ag-/0/1781596692986?e=1783555200&v=beta&t=U4ufJeQkeXbrYefQZCTJ1Y99PFMEfpHi2kP7hJ-UKOE" alt="Mor Hananovitz" width="120" style="border-radius:60px; margin-bottom:8px;">
+
 **Mor Hananovitz** — Senior Manager AI/ML @ LSports  
 Lecturer in Generative AI @ Google & Reichman AI Tech School  
 WiDS Israel community leader

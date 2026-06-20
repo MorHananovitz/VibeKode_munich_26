@@ -55,3 +55,4 @@ WiDS Israel community leader
 
 - [VibeKode Munich conference page](https://devm.io/conferences/vibekode-munich)
 - [VibeKode Munich program (vibekode.it)](https://vibekode.it/munich/)
+- [Mor Hananovitz Linkedin](https://www.linkedin.com/in/mor-hananovitz/)

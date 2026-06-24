@@ -1,0 +1,39 @@
+---
+description: Persist session changes to the memory bank — run at the end of a session or after significant changes
+---
+
+You are updating the Memory Bank to reflect what happened in this session. Follow each step in order.
+
+## Step 1 — Review the session
+
+Reflect on the current conversation and identify:
+- What was built, changed, or decided
+- Any new patterns, constraints, or architectural decisions discovered
+- What is still in progress or blocked
+- What the next logical step is
+
+## Step 2 — Determine which files need updating
+
+Only update files where something actually changed. Do not rewrite files that are still accurate.
+
+| File | Update when... |
+|---|---|
+| `memory-bank/activeContext.md` | Current focus, recent changes, or next steps changed |
+| `memory-bank/progress.md` | Work was completed, started, or blocked |
+| `memory-bank/systemPatterns.md` | A new architectural pattern or design decision was made |
+| `memory-bank/techContext.md` | A new dependency, tool, or constraint was introduced |
+| `memory-bank/productContext.md` | The product goals or user experience direction shifted |
+| `memory-bank/projectbrief.md` | Core project scope or requirements changed (rare) |
+
+## Step 3 — Update each file
+
+For each file that needs updating:
+1. Read the current contents
+2. Make the minimal edit that reflects what changed — do not rewrite content that is still accurate
+3. Write the updated file
+
+Always update `activeContext.md` and `progress.md` unless the session had no meaningful changes.
+
+## Step 4 — Confirm
+
+After all updates, list each file that was changed and briefly state what was updated. State: "Memory bank updated."

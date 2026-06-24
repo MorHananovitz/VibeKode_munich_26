@@ -12,19 +12,19 @@ Demo code and Cursor configuration from [Mor Hananovitz](https://devm.io/experts
 
 ### Tuesday, 23 June 2026 — Discovery Day
 
-| Time (CEST) | Session | Track |
+| Time        | Session | Track |
 |-------------|---------|-------|
-| 07:30–08:00 | Discovery Day Opening: Navigating the Future of AI-Native Software Development | Agentic Engineering |
-| 09:00–09:30 | **Discovery Day: The Hitchhiker's Guide to Cursor (You Don't Need To Bring a Towel for This)** | Vibe Coding |
-| 14:30–15:00 | Campfire Conversations — Where Orientation Becomes Direction | Agentic Engineering |
+| 09:30–10:00 | Discovery Day Opening: Navigating the Future of AI-Native Software Development | Agentic Engineering |
+| 11:00–11:30 | **Discovery Day: The Hitchhiker's Guide to Cursor (You Don't Need To Bring a Towel for This)** | Vibe Coding |
+| 16:30–17:00 | Campfire Conversations — Where Orientation Becomes Direction | Agentic Engineering |
 
 The Hitchhiker's Guide session introduces Cursor — Agent, Ask, and Composer modes — and how small workflow changes can improve day-to-day coding.
 
 ### Wednesday, 24 June 2026 — Main Conference
 
-| Time (CEST) | Session | Track |
+| Time        | Session | Track |
 |-------------|---------|-------|
-| 14:00–14:45 | **[Advanced] The Hitchhiker's Guide to Cursor (You Don't Need To Bring a Towel for This)** | Vibe Coding |
+| 16:00–16:45 | **[Advanced] The Hitchhiker's Guide to Cursor (You Don't Need To Bring a Towel for This)** | Vibe Coding |
 
 Advanced follow-up covering rules, skills, commands, subagents, and repeatable high-leverage workflows in Cursor.
 

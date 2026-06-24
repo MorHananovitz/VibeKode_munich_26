@@ -1,5 +1,9 @@
 # VibeKode Munich Demo Materials
 
+<p align="left">
+  <img src="https://vibekode.it/wp-content/uploads/2025/10/VibeKode-3-1.png" alt="VibeKode Munich Logo" width="180">
+</p>
+
 Demo code and Cursor configuration from [Mor Hananovitz](https://devm.io/experts/mor-hananovitz)'s sessions at [VibeKode Munich 2026](https://devm.io/conferences/vibekode-munich).
 
 **Conference:** VibeKode Munich  

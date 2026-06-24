@@ -1,0 +1,73 @@
+---
+description: Review Python code against project standards — types, exceptions, naming, SRP, config, and logging
+---
+
+You are performing a structured code review on Python files. Follow each step in order.
+
+## Step 1 — Determine what to review
+
+Ask the user which scope to review using the AskQuestion tool with these single-select options:
+
+- `staged`: Staged git changes (`git diff --cached -- '*.py'`)
+- `branch`: All changes on the current branch vs main (`git diff main...HEAD -- '*.py'`)
+- `file`: A specific file (ask for the path)
+
+## Step 2 — Collect the code
+
+Run the appropriate command based on the user's choice:
+
+**Staged changes:**
+```bash
+git diff --cached -- '*.py'
+```
+
+**Branch changes:**
+```bash
+git diff main...HEAD -- '*.py'
+```
+
+**Specific file:** read the file at the path provided by the user.
+
+If the output is empty, inform the user there is nothing to review in that scope and stop.
+
+## Step 3 — Review the code
+
+Analyse the collected code against the following six categories. For every violation found, produce one finding entry (see format below). If a category has no issues, skip it.
+
+### Categories
+
+**types** — Missing or incorrect type annotations on functions, methods, or class attributes.
+
+**exceptions** — Bare `except` clauses, swallowed exceptions, missing `from exc` chaining, or catching `Exception` when a specific type is available.
+
+**naming** — Variables/functions not in `snake_case`, classes not in `PascalCase`, constants not in `UPPER_SNAKE_CASE`, or non-descriptive single-letter names outside loop indices.
+
+**SRP** — Functions or classes that mix concerns (e.g. IO alongside business logic) or exceed ~30 lines without clear justification.
+
+**config** — Hardcoded secrets, URLs, hostnames, ports, or any environment-specific value that should come from an environment variable.
+
+**logging** — Use of `print()` for runtime output instead of the `logging` module.
+
+## Step 4 — Report findings
+
+Present findings grouped by file. Use this format for each issue:
+
+```
+File: <path>  Line: <line number>
+Category: <types | exceptions | naming | SRP | config | logging>
+Issue: <one sentence describing what is wrong>
+Fix:
+<corrected code snippet>
+```
+
+After all findings, print a short summary line:
+
+```
+Review complete — <N> issue(s) found across <M> file(s).
+```
+
+If no issues are found in any category, print:
+
+```
+Review complete — no issues found.
+```

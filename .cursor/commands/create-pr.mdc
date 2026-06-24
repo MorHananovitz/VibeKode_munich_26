@@ -1,0 +1,76 @@
+---
+description: Create a GitHub pull request from current changes — branches, commits, and opens a PR
+---
+
+You are executing a full PR creation workflow. Follow each step in order, running bash commands directly.
+
+## Step 1 — Detect or create a branch
+
+Run:
+```bash
+git branch --show-current
+```
+
+- If the result is `main` or `master`, ask the user for a branch name, then run:
+  ```bash
+  git checkout -b <branch-name>
+  ```
+- If the result is already a feature branch, continue without creating one.
+
+## Step 2 — Stage all changes
+
+Run:
+```bash
+git status --short
+```
+
+Show the user the list of changed files. Then stage everything:
+```bash
+git add .
+```
+
+## Step 3 — Write a commit message
+
+Inspect the staged diff:
+```bash
+git diff --cached --stat
+```
+
+Based on the diff, generate a concise, meaningful commit message following the format:
+`<type>(<scope>): <short summary>`
+
+Where `type` is one of: `feat`, `fix`, `chore`, `refactor`, `docs`, `test`.
+
+Show the message to the user and ask for approval or edits before committing.
+
+## Step 4 — Commit
+
+Once the commit message is approved, run:
+```bash
+git commit -m "<approved commit message>"
+```
+
+## Step 5 — Push the branch
+
+```bash
+git push -u origin HEAD
+```
+
+## Step 6 — Create the pull request
+
+Generate a short PR title and body from the commit message and diff context. Then run:
+```bash
+gh pr create \
+  --title "<pr title>" \
+  --body "<pr body summarising the changes>" \
+  --draft=false
+```
+
+## Step 7 — Return the PR URL
+
+Run:
+```bash
+gh pr view --json url --jq '.url'
+```
+
+Print the PR URL clearly so the user can open it directly.

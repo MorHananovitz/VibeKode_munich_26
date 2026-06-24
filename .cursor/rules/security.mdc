@@ -1,0 +1,116 @@
+---
+description: OWASP Top 10 security rules for Python code — enforced on every file
+globs: **/*.py
+alwaysApply: true
+---
+
+# OWASP Top 10 Security Rules
+
+Never write code that violates the patterns below. When you encounter existing code that does, flag it and ask before proceeding.
+
+---
+
+## A01 — Broken Access Control
+
+- Never set file permissions to world-writable: `os.chmod(path, 0o777)` is forbidden.
+- Never expose admin or privileged routes without an explicit authorization check.
+- Never rely on client-supplied data (headers, cookies, query params) to determine access level without server-side validation.
+
+---
+
+## A02 — Cryptographic Failures
+
+- Never use `hashlib.md5()` or `hashlib.sha1()` for security-sensitive data (passwords, tokens, signatures). Use `hashlib.sha256()` or higher.
+- Never disable TLS verification: `requests.get(url, verify=False)` is forbidden.
+- Never store secrets, API keys, or passwords in source code. Use environment variables.
+- Never use plain `http://` for external service URLs in non-test code.
+
+```python
+# BAD
+import hashlib
+hashlib.md5(password.encode()).hexdigest()
+requests.get(url, verify=False)
+
+# GOOD
+import hashlib
+hashlib.sha256(password.encode()).hexdigest()
+requests.get(url)
+```
+
+---
+
+## A03 — Injection
+
+- Never pass `shell=True` to `subprocess` with any user-controlled input.
+- Never use `os.system()`. Use `subprocess.run()` with a list of arguments instead.
+- Never use `eval()` or `exec()` on any input that is not a compile-time constant.
+- Never build SQL queries with string formatting or concatenation. Always use parameterized queries.
+
+```python
+# BAD
+subprocess.run(f"grep {user_input}", shell=True)
+cursor.execute(f"SELECT * FROM users WHERE id = {user_id}")
+
+# GOOD
+subprocess.run(["grep", user_input])
+cursor.execute("SELECT * FROM users WHERE id = %s", (user_id,))
+```
+
+---
+
+## A05 — Security Misconfiguration
+
+- Never commit `DEBUG = True` to non-development code.
+- Never set `ALLOWED_HOSTS = ["*"]` in production configuration.
+- Never use framework-generated insecure default secret keys (e.g. `django-insecure-...`). Always load `SECRET_KEY` from an environment variable.
+
+---
+
+## A07 — Identification and Authentication Failures
+
+- Never hardcode passwords or credentials as literals in source files.
+- Always load credentials from environment variables or a secrets manager.
+
+```python
+# BAD
+DB_PASSWORD = "supersecret123"
+
+# GOOD
+import os
+DB_PASSWORD = os.environ["DB_PASSWORD"]
+```
+
+---
+
+## A08 — Software and Data Integrity Failures
+
+- Never use `pickle.load()` or `pickle.loads()` on data from an untrusted source.
+- Never call `yaml.load()` without an explicit `Loader`. Use `yaml.safe_load()` instead.
+
+```python
+# BAD
+data = pickle.loads(user_supplied_bytes)
+config = yaml.load(stream)
+
+# GOOD
+config = yaml.safe_load(stream)
+```
+
+---
+
+## A10 — Server-Side Request Forgery (SSRF)
+
+- Never pass a user-controlled value directly as a URL to `requests`, `httpx`, or `urllib`.
+- Always validate and allowlist URL origins before making outbound HTTP calls.
+
+```python
+# BAD
+response = requests.get(request.args["url"])
+
+# GOOD
+ALLOWED_HOSTS = {"api.example.com"}
+parsed = urllib.parse.urlparse(user_url)
+if parsed.hostname not in ALLOWED_HOSTS:
+    raise ValueError("URL host not allowed")
+response = requests.get(user_url)
+```

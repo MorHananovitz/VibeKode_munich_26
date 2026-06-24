@@ -1,0 +1,5 @@
+[2026-06-23T20:43:32Z] exit=unknown  chmod +x /Users/mor.h/python_projects/vibekode_demo/.cursor/hooks/*.sh && ls -la /Users/mor.h/python_projects/vibekode_demo/.cursor/hooks/
+[2026-06-24T11:34:36Z] exit=unknown  chmod +x /Users/mor.h/python_projects/vibekode_demo/.cursor/hooks/owasp-check.sh
+[2026-06-24T11:34:43Z] exit=unknown  chmod +x /Users/mor.h/python_projects/vibekode_demo/.cursor/hooks/owasp-check.sh
+[2026-06-24T19:53:03Z] exit=unknown  ls "/Users/mor.h/python_projects/vibekode_demo/Advanced: The Hitchhiker's Guide to Cursor (You Don't Need To Bring a Towel for This)/demo/"
+[2026-06-24T19:53:07Z] exit=unknown  ls "/Users/mor.h/python_projects/vibekode_demo/Advanced: The Hitchhiker's Guide to Cursor (You Don't Need To Bring a Towel for This)/demo/commands_cr/" && ls "/Users/mor.h/python_projects/vibekode_demo/Advanced: The Hitchhiker's Guide to Cursor (You Don't Need To Bring a Towel for This)/demo/rules_cr/" && ls "/Users/mor.h/python_projects/vibekode_demo/Advanced: The Hitchhiker's Guide to Cursor (You Don't Need To Bring a Towel for This)/demo/skills_cr/"

@@ -1,0 +1,35 @@
+---
+description: Selectively load memory bank context based on the current task type
+---
+
+You are loading project context from the Memory Bank. Follow the steps below.
+
+## Step 1 — Identify the task type
+
+Ask the user (or infer from the current conversation) which task type applies:
+
+- **new-feature** — starting something new
+- **planning** — architecture or design decisions
+- **debugging** — fixing a bug or investigating an issue
+- **new-session** — first message of a session or unfamiliar codebase
+- **continuing** — resuming from a previous session
+
+## Step 2 — Read the relevant files
+
+Based on the task type, read only the files listed below. Do not read files that are not relevant.
+
+| Task type | Files to read |
+|---|---|
+| new-feature | `memory-bank/projectbrief.md`, `memory-bank/activeContext.md` |
+| planning | `memory-bank/projectbrief.md`, `memory-bank/systemPatterns.md`, `memory-bank/techContext.md` |
+| debugging | `memory-bank/techContext.md`, `memory-bank/progress.md`, `memory-bank/activeContext.md` |
+| new-session | All files in `memory-bank/` |
+| continuing | `memory-bank/activeContext.md`, `memory-bank/progress.md` |
+
+## Step 3 — Summarise what was loaded
+
+After reading, provide a brief summary (3–5 bullet points) of the most relevant context for the current task. Do not reproduce the full file contents.
+
+## Step 4 — Confirm readiness
+
+State: "Memory bank loaded for [task type]. Ready to proceed."

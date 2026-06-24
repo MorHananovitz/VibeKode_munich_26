@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/inject-context.sh"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/quality-gate.sh",
+        "matcher": "Write"
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/block-dangerous.sh",
+        "failClosed": true
+      },
+      {
+        "command": ".cursor/hooks/secret-scan.sh",
+        "failClosed": true
+      }
+    ],
+    "afterShellExecution": [
+      {
+        "command": ".cursor/hooks/shell-audit.sh"
+      }
+    ],
+    "preToolUse": [
+      {
+        "command": ".cursor/hooks/context-guard.sh",
+        "matcher": "Read"
+      }
+    ],
+    "stop": [
+      {
+        "command": ".cursor/hooks/notify-slack.sh"
+      },
+      {
+        "command": ".cursor/hooks/cleanup-check.sh"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+---
+description: Code review checklist and standards for Python files
+globs: **/*.py
+alwaysApply: false
+---
+
+# Python Code Review
+
+When reviewing Python code, evaluate each of the following areas and flag violations with a clear explanation and a concrete fix.
+
+## Type Annotations
+
+Every function, method, and class attribute must be fully annotated.
+
+```python
+# BAD
+def process(data, threshold):
+    ...
+
+# GOOD
+def process(data: list[dict[str, str]], threshold: float) -> list[str]:
+    ...
+```
+
+## Exception Handling
+
+Use specific exception types. Never use bare `except`. Always include context.
+
+```python
+# BAD
+try:
+    result = call_api()
+except:
+    pass
+
+# GOOD
+try:
+    result = call_api()
+except requests.HTTPError as exc:
+    logger.error("API call failed: %s", exc)
+    raise ServiceUnavailableError("Upstream error") from exc
+```
+
+## Naming and Readability
+
+- Variables, functions, and methods: `snake_case`
+- Classes: `PascalCase`
+- Constants: `UPPER_SNAKE_CASE`
+- Names must be descriptive; avoid single-letter names outside of loop indices
+
+## Single Responsibility
+
+Each function or class should do one thing. Flag functions longer than ~30 lines or those that mix IO with business logic.
+
+## No Hardcoded Configuration
+
+Secrets, URLs, and environment-specific values must come from environment variables.
+
+```python
+# BAD
+API_KEY = "sk-abc123"
+
+# GOOD
+API_KEY = os.environ["API_KEY"]
+```
+
+## Logging
+
+Use the `logging` module. Never use `print` for runtime output.
+
+## Review Output Format
+
+For each issue found, report:
+1. **Location**: file and line number
+2. **Category**: one of (types, exceptions, naming, SRP, config, logging, style)
+3. **Issue**: what is wrong
+4. **Fix**: the corrected code snippet

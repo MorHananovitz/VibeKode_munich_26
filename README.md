@@ -7,9 +7,8 @@
 Demo code and Cursor configuration from [Mor Hananovitz](https://devm.io/experts/mor-hananovitz)'s sessions at [VibeKode Munich 2026](https://devm.io/conferences/vibekode-munich).
 
 **Conference:** VibeKode Munich  
-**Dates:** 22–26 June 2026 | Munich & online  
+**Dates:** 22–26 June 2026 | Munich & online  
 **Agenda:** [devm.io/conferences/vibekode-munich](https://devm.io/conferences/vibekode-munich)
-
 ---
 
 ## Talks
